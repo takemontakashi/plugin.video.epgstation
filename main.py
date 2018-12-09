@@ -74,7 +74,7 @@ def addList(video, server_url):
     ])
 
     video_url = urljoin(server_url, '/api/recorded/' + str(video['id']) + '/file')
-    if video['original'] == False and 'encoded' in video and len(video['encoded']) > 0:
+    if 'encoded' in video and len(video['encoded']) > 0:
         video_url += '?encodedId=' + str(video['encoded'][0]['encodedId'])
 
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=video_url, listitem=li)
